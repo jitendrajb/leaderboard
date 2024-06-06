@@ -1,0 +1,5 @@
+::1 POST /auth/login 201
+::1 POST /leaderboard/scores 201
+::1 POST /leaderboard/scores 201
+::1 POST /leaderboard/scores 201
+::1 POST /leaderboard/scores 429

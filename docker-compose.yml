@@ -1,0 +1,30 @@
+version: '1.0'
+
+services:
+  app:
+    build: .
+    container_name: nestjs-leaderboard-app
+    restart: always
+    ports:
+      - '3000:3000'
+    environment:
+      - DATABASE_HOST=localhost
+      - DATABASE_PORT=3306
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+      - DATABASE_NAME=leaderboard
+      - JWT_SECRET=myjitutoken
+      - JWT_EXPIRATION=3600s
+    depends_on:
+      - localhost
+
+  database:
+    image: mysql:8.0.3
+    container_name: nestjs-leaderboard-db
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DB=leaderboard
